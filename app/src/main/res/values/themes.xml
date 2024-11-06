@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.BugBusters" parent="Theme.SplashScreen" >
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_background</item>
+        <item name="windowSplashScreenBackground">#3972A1</item>
+        <item name="postSplashScreenTheme">@style/Theme.SplashScreen.</item>
+    </style>
 
-    <style name="Theme.BugBusters" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.SplashScreen." parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
