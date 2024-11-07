@@ -1,5 +1,6 @@
 package com.example.bugbusters.ui
 
+import android.widget.Space
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -31,16 +32,18 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             style = SpanStyle(
                 fontSize = 48.sp,
                 fontWeight = FontWeight.W900,
-                color = primary
-            )
+                color = primary,
+
+                )
         ) {
-            append("Você Sabe\n")
+            append("Você Sabe")
         }
+        append("\n\n")
         withStyle(
             style = SpanStyle(
                 fontSize = 18.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = primary
+                color = primary,
             )
         ) {
             append("o que é ")
