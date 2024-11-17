@@ -1,4 +1,4 @@
-package com.example.bugbusters.ui.theme
+package com.example.bugbusters.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -11,3 +11,4 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val primary = Color(0xFF3972A1)
+val secondary = Color(0x818DA4B6)

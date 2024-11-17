@@ -1,7 +1,7 @@
-package com.example.bugbusters.ui.telas_nao
+package com.example.bugbusters.presentation.ui.screens.telasNao
 
-import android.widget.Space
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -20,10 +19,14 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bugbusters.ui.theme.primary
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.bugbusters.components.CustomButton
+import com.example.bugbusters.presentation.navigation.NavigationItem
+import com.example.bugbusters.presentation.ui.theme.primary
 
 @Composable
-fun ScreenTwoNo(modifier: Modifier = Modifier) {
+fun ScreenFourNo(modifier: Modifier = Modifier, navController: NavController, paddingValues: PaddingValues,) {
     Column(
         modifier
             .fillMaxSize()
@@ -31,22 +34,29 @@ fun ScreenTwoNo(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            "Sintomas e \n" +
-                    "Diagnóstico",
+            " Prevenção e \n\n" +
+                    "Cuidados",
             fontSize = 40.sp,
             color = primary,
+            textAlign = TextAlign.Center,
             fontWeight = FontWeight.W900,
             modifier = Modifier.padding(10.dp)
         )
-        Spacer(modifier = modifier.height(50.dp))
+        Spacer(modifier = modifier.height(100.dp))
         Text(
             modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
-                    append("Os sintomas ")
+                withStyle(
+                    style = SpanStyle(
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.W900,
+                        color = primary
+                    )
+                ) {
+                    append("É importante ")
                 }
                 withStyle(style = SpanStyle(fontSize = 20.sp)) {
-                    append("da diabetes incluem sentir muita sede, ter que urinar frequentemente, sentir-se muito cansado e, em alguns casos, ter a visão embaçada. Se você notar esses sintomas, é importante consultar um médico.")
+                    append("cuidar da diabetes para evitar complicações de saúde. Isso inclui manter uma dieta equilibrada, fazer exercícios regularmente e monitorar os níveis de açúcar no sangue")
                 }
             }
         )
@@ -55,18 +65,23 @@ fun ScreenTwoNo(modifier: Modifier = Modifier) {
             modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
             text = buildAnnotatedString {
                 withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
-                    append("O diagnóstico ")
+                    append("Consultas ")
                 }
                 withStyle(style = SpanStyle(fontSize = 20.sp)) {
-                    append("de diabetes é feito com exames de sangue que medem a quantidade de açúcar no seu sangue. O médico pode pedir um exame de glicose em jejum ou um teste de hemoglobina glicada, que mostra como seu açúcar no sangue tem estado ao longo do tempo.")
+                    append("médicas regulares também são essenciais para um bom controle da doença.")
                 }
             }
         )
+        Spacer(modifier.height(18.dp))
+        CustomButton {
+            navController.navigate(NavigationItem.ScreenFiveNo.route)
+        }
     }
 }
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-private fun ScreenTwoNoPreview() {
-    ScreenTwoNo()
+private fun ScreenThreeNoPreview() {
+    val rememberNavController = rememberNavController()
+    ScreenFourNo(paddingValues = PaddingValues(10.dp),navController = rememberNavController)
 }

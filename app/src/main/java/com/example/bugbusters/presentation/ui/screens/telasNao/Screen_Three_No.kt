@@ -1,6 +1,7 @@
-package com.example.bugbusters.ui.telas_nao
+package com.example.bugbusters.presentation.ui.screens.telasNao
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,11 +19,14 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bugbusters.ui.telas_sim.ScreenThree
-import com.example.bugbusters.ui.theme.primary
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.bugbusters.components.CustomButton
+import com.example.bugbusters.presentation.navigation.NavigationItem
+import com.example.bugbusters.presentation.ui.theme.primary
 
 @Composable
-fun ScreenFourNo(modifier: Modifier = Modifier) {
+fun ScreenThreeNo(modifier: Modifier = Modifier, navController: NavController, paddingValues: PaddingValues,) {
     Column(
         modifier
             .fillMaxSize()
@@ -30,8 +34,8 @@ fun ScreenFourNo(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            " Prevenção e \n" +
-                    "Cuidados",
+            " Tratamento e \n\n" +
+                    "Controle",
             fontSize = 40.sp,
             color = primary,
             textAlign = TextAlign.Center,
@@ -42,17 +46,11 @@ fun ScreenFourNo(modifier: Modifier = Modifier) {
         Text(
             modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
             text = buildAnnotatedString {
-                withStyle(
-                    style = SpanStyle(
-                        fontSize = 32.sp,
-                        fontWeight = FontWeight.W900,
-                        color = primary
-                    )
-                ) {
-                    append("É importante ")
+                withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
+                    append("O tratamento ")
                 }
                 withStyle(style = SpanStyle(fontSize = 20.sp)) {
-                    append("cuidar da diabetes para evitar complicações de saúde. Isso inclui manter uma dieta equilibrada, fazer exercícios regularmente e monitorar os níveis de açúcar no sangue")
+                    append("da diabetes pode incluir mudanças na dieta, atividade física e medicamentos.")
                 }
             }
         )
@@ -61,18 +59,35 @@ fun ScreenFourNo(modifier: Modifier = Modifier) {
             modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
             text = buildAnnotatedString {
                 withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
-                    append("Consultas ")
+                    append("Diabetes tipo 1 \n")
                 }
                 withStyle(style = SpanStyle(fontSize = 20.sp)) {
-                    append("médicas regulares também são essenciais para um bom controle da doença.")
+                    append("As pessoas precisam tomar insulina todos os dias")
                 }
             }
         )
+        Spacer(modifier = modifier.height(30.dp))
+        Text(
+            modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
+            text = buildAnnotatedString {
+                withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
+                    append("Diabetes tipo 2 \n")
+                }
+                withStyle(style = SpanStyle(fontSize = 20.sp)) {
+                    append("Muitas vezes é possível controlar a doença com uma alimentação saudável e exercícios, mas algumas pessoas também podem precisar de medicamentos.")
+                }
+            }
+        )
+        Spacer(modifier.height(18.dp))
+        CustomButton {
+            navController.navigate(NavigationItem.ScreenFourNo.route)
+        }
     }
 }
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 private fun ScreenThreeNoPreview() {
-    ScreenFourNo()
+    val rememberNavController = rememberNavController()
+    ScreenThreeNo(paddingValues = PaddingValues(10.dp),navController =  rememberNavController)
 }

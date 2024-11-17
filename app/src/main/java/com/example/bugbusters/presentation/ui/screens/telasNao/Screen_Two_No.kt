@@ -1,6 +1,7 @@
-package com.example.bugbusters.ui.telas_nao
+package com.example.bugbusters.presentation.ui.screens.telasNao
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,11 +19,14 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bugbusters.ui.telas_sim.ScreenThree
-import com.example.bugbusters.ui.theme.primary
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.bugbusters.components.CustomButton
+import com.example.bugbusters.presentation.navigation.NavigationItem
+import com.example.bugbusters.presentation.ui.theme.primary
 
 @Composable
-fun ScreenThreeNo(modifier: Modifier = Modifier) {
+fun ScreenTwoNo(modifier: Modifier = Modifier, navController: NavController, paddingValues: PaddingValues,) {
     Column(
         modifier
             .fillMaxSize()
@@ -30,23 +34,22 @@ fun ScreenThreeNo(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            " Tratamento e \n" +
-                    "Controle",
+            "Sintomas e \n\n" +
+                    "Diagnóstico",
             fontSize = 40.sp,
             color = primary,
-            textAlign = TextAlign.Center,
             fontWeight = FontWeight.W900,
             modifier = Modifier.padding(10.dp)
         )
-        Spacer(modifier = modifier.height(100.dp))
+        Spacer(modifier = modifier.height(50.dp))
         Text(
             modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
             text = buildAnnotatedString {
                 withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
-                    append("O tratamento ")
+                    append("Os sintomas ")
                 }
                 withStyle(style = SpanStyle(fontSize = 20.sp)) {
-                    append("da diabetes pode incluir mudanças na dieta, atividade física e medicamentos.")
+                    append("da diabetes incluem sentir muita sede, ter que urinar frequentemente, sentir-se muito cansado e, em alguns casos, ter a visão embaçada. Se você notar esses sintomas, é importante consultar um médico.")
                 }
             }
         )
@@ -55,30 +58,23 @@ fun ScreenThreeNo(modifier: Modifier = Modifier) {
             modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
             text = buildAnnotatedString {
                 withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
-                    append("Diabetes tipo 1 \n")
+                    append("O diagnóstico ")
                 }
                 withStyle(style = SpanStyle(fontSize = 20.sp)) {
-                    append("As pessoas precisam tomar insulina todos os dias")
+                    append("de diabetes é feito com exames de sangue que medem a quantidade de açúcar no seu sangue. O médico pode pedir um exame de glicose em jejum ou um teste de hemoglobina glicada, que mostra como seu açúcar no sangue tem estado ao longo do tempo.")
                 }
             }
         )
-        Spacer(modifier = modifier.height(30.dp))
-        Text(
-            modifier = modifier.fillMaxWidth(), textAlign = TextAlign.Justify,
-            text = buildAnnotatedString {
-                withStyle(style = SpanStyle(fontSize = 32.sp, fontWeight = FontWeight.W900)) {
-                    append("Diabetes tipo 2 \n")
-                }
-                withStyle(style = SpanStyle(fontSize = 20.sp)) {
-                    append("Muitas vezes é possível controlar a doença com uma alimentação saudável e exercícios, mas algumas pessoas também podem precisar de medicamentos.")
-                }
-            }
-        )
+        Spacer(modifier.height(18.dp))
+        CustomButton {
+            navController.navigate(NavigationItem.ScreenThreeNo.route)
+        }
     }
 }
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-private fun ScreenThreeNoPreview() {
-    ScreenThreeNo()
+private fun ScreenTwoNoPreview() {
+    val rememberNavController = rememberNavController()
+    ScreenTwoNo(paddingValues = PaddingValues(10.dp),navController = rememberNavController)
 }

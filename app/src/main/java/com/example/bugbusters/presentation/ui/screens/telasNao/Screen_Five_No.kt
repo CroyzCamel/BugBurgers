@@ -1,6 +1,7 @@
-package com.example.bugbusters.ui.telas_nao
+package com.example.bugbusters.presentation.ui.screens.telasNao
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,11 +20,14 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bugbusters.ui.telas_sim.ScreenThree
-import com.example.bugbusters.ui.theme.primary
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.bugbusters.components.CustomButton
+import com.example.bugbusters.presentation.navigation.NavigationItem
+import com.example.bugbusters.presentation.ui.theme.primary
 
 @Composable
-fun ScreenFiveNo(modifier: Modifier = Modifier) {
+fun ScreenFiveNo(modifier: Modifier = Modifier, navController: NavController, paddingValues: PaddingValues,) {
     Column(
         modifier
             .fillMaxSize()
@@ -31,7 +35,7 @@ fun ScreenFiveNo(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            " Complicações da " +
+            " Complicações da \n\n " +
                     "Diabetes",
             fontSize = 40.sp,
             color = primary,
@@ -111,6 +115,10 @@ fun ScreenFiveNo(modifier: Modifier = Modifier) {
                 }
             }
         )
+        Spacer(modifier.height(18.dp))
+        CustomButton {
+            navController.navigate(NavigationItem.Home.route)
+        }
 
     }
 }
@@ -118,5 +126,6 @@ fun ScreenFiveNo(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 private fun ScreenThreeNoPreview() {
-    ScreenFiveNo()
+    val rememberNavController = rememberNavController()
+    ScreenFiveNo(paddingValues = PaddingValues(10.dp),navController = rememberNavController)
 }

@@ -14,10 +14,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bugbusters.ui.theme.primary
+import com.example.bugbusters.presentation.ui.theme.primary
 
 @Composable
-fun ButtonNo(modifier: Modifier = Modifier) {
+fun ButtonNo(
+    modifier: Modifier = Modifier,
+    request: () -> Unit
+) {
     Column {
         Button(
             modifier = modifier
@@ -28,7 +31,8 @@ fun ButtonNo(modifier: Modifier = Modifier) {
                 contentColor = LightGray,
                 disabledContentColor = LightGray,
                 disabledContainerColor = LightGray
-            ), onClick = { /*TODO*/ }) {
+            ), onClick = request
+        ) {
             Text(text = "Não", fontSize = 20.sp, fontWeight = FontWeight.W900, color = Color.Black)
         }
     }
@@ -37,5 +41,5 @@ fun ButtonNo(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 private fun ButtonYesPreview() {
-    ButtonNo()
+    ButtonNo(Modifier, {})
 }

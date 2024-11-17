@@ -1,4 +1,4 @@
-package com.example.bugbusters.ui.theme
+package com.example.bugbusters.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

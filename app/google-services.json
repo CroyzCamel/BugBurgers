@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1083155455019",
+    "firebase_url": "https://bugbusters-63c64-default-rtdb.firebaseio.com",
+    "project_id": "bugbusters-63c64",
+    "storage_bucket": "bugbusters-63c64.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083155455019:android:b2c2cac5738245e98fde6e",
+        "android_client_info": {
+          "package_name": "com.example.bugbusters"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEC8qV_kQ7WzjCkgfsL2s7zLJzekDW9bQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,10 +13,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bugbusters.ui.theme.primary
+import com.example.bugbusters.presentation.navigation.NavigationItem
+import com.example.bugbusters.presentation.ui.theme.primary
+import org.w3c.dom.Text
 
 @Composable
-fun ButtonYes(modifier: Modifier = Modifier) {
+fun ButtonYes(
+    modifier: Modifier = Modifier,
+    navigate: () -> Unit,
+    text: String = "Sim"
+) {
     Column {
         Button(
             modifier = modifier
@@ -27,8 +33,9 @@ fun ButtonYes(modifier: Modifier = Modifier) {
                 contentColor = primary,
                 disabledContentColor = primary,
                 disabledContainerColor = primary
-            ), onClick = { /*TODO*/ }) {
-            Text(text = "Sim", fontSize = 20.sp, fontWeight = FontWeight.W900, color = Color.White)
+            ), onClick = navigate
+        ) {
+            Text(text = text, fontSize = 20.sp, fontWeight = FontWeight.W900, color = Color.White)
         }
     }
 }
@@ -36,5 +43,7 @@ fun ButtonYes(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 private fun ButtonYesPreview() {
-    ButtonYes()
+    ButtonYes(navigate = {
+        NavigationItem.ScreenOneYes.route
+    })
 }

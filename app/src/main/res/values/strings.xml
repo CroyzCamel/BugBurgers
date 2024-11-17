@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">BugBusters</string>
+    <string name="tipos_de_diabetes">Tipos de Diabetes</string>
+    <string name="diabetes_mellitus">Diabetes mellitus</string>
+    <string name="um_grupo_de">" é um grupo de "</string>
+    <string name="doen_as_metab_licas">"doenças metabólicas "</string>
+    <string name="que_resultam_em">"que resultam em "</string>
+    <string name="n_veis_elevados_de_glicose_no_sangue">níveis elevados de glicose no sangue.</string>
+    <string name="icone_gravida">icone_gravida</string>
+    <string name="icone_diabetes">icone_diabetes</string>
+    <string name="icone_formulario">icone_formulario</string>
+    <string name="tratamento_e_controle">O tratamento da diabetes pode incluir mudanças na dieta, atividade física e medicamentos. A insulina é necessária para os pacientes com diabetes tipo 1, enquanto os pacientes com diabetes tipo 2 podem controlar a doença com medicações orais. O monitoramento constante da glicose é essencial para manter os níveis de açúcar dentro da faixa desejada.</string>
+    <string name="complicações_da_diabetes">A diabetes mal controlada pode levar a várias complicações, incluindo doenças cardiovasculares, neuropatia, retinopatia e problemas renais. A prevenção dessas complicações envolve um gerenciamento adequado da glicose, acompanhamento médico regular e estilo de vida saudável.</string>
 </resources>
